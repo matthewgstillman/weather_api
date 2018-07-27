@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Weather Forecast</title>
+    <link rel="stylesheet" type="text/css" href="weatherForecast.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+      $('form').submit(function() {
+        var url ="http://api.openweathermap.org/data/2.5/weather?q=";
+        var key ="id=524901&APPID=858bf2417087dde21765ebae9b676371";
+        var city =  $('#cityname').val();
+        var html_str = "";
+        url += city + key;
+
+        $.get(url, function(res) {
+          var tempfahrenheit = (9/5) * (res.main.temp - 273) + 32;
+        $('.temperature').html("<h1>" + "City Name: " + city  + "</h1>" + "<h2>" + "Temperature: " + Math.trunc(tempfahrenheit) + "</h2>");
+        console.log(tempfahrenheit);
+        }, 'json');
+        return false;
+  });
+});
+    </script>
+  </head>
+  <body>
+        <div class="wrapper">
+          <h1>Weather Forecast</h1>
+          <form id="form1" action='process.php' method="post">
+                Weather Forecast: <input id="cityname" type='text' name="weather_forecast">
+                <input type="submit" value="Search Weather">
+          </form>
+            <div class="temperature">
+
+            </div>
+        </div>
+  </body>
+</html>

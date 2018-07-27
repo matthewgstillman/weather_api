@@ -1,0 +1,32 @@
+*{
+    width: 1014px;
+}
+
+.wrapper{
+    width: 902px;
+    height: 1000px;
+    background-color: #002B5C;
+    color:  #F9A01B;
+    font-family: fantasy;
+    font-size: 35px;
+    padding: 56px;
+}
+
+
+#cityname{
+    width: 300px;
+}
+
+input{
+    width: 300px;
+}
+
+h1{
+    width: 887px;
+    text-align: center;
+}
+
+h2{
+    width: 887px;
+    text-align: center;
+}
